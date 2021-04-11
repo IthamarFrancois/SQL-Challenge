@@ -1,0 +1,63 @@
+# Ithamar Francois
+# SQL Challenge ERD
+#####################
+
+
+Titles
+-
+title_id VARCHAR(5) PK
+title VARCHAR(30)
+
+
+#####################
+
+
+Employees
+-
+emp_no INTEGER PK 
+emp_title_id VARCHAR(6) FK >- Titles.title_id
+birth_date DATE
+first_name VARCHAR(30)
+last_name VARCHAR(30)
+sex VARCHAR(2)
+hire_date DATE
+
+
+#####################
+
+
+Salaries
+-
+emp_no INTEGER PK FK >- Employees.emp_no
+salary FLOAT(6)
+
+
+#####################
+
+
+Departments
+-
+dept_no VARCHAR(5) PK
+dept_name VARCHAR(30)
+
+
+#####################
+
+
+Dept_Manager
+-
+dept_no VARCHAR(5) FK >- Departments.dept_no
+emp_no INTEGER FK >- Employees.emp_no
+# Composite key created
+(dept_no,emp_no) PK
+
+
+#####################
+
+
+Dept_Emp
+-
+emp_no INTEGER FK >- Employees.emp_no
+dept_no VARCHAR(5) FK >- Departments.dept_no
+# Composite key created
+(emp_no,dept_no) PK
